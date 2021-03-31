@@ -1,11 +1,8 @@
 #include "./Point3D.h"
 #include <iostream>
 
-Point3D::Point3D()
+Point3D::Point3D() : m_x{0}, m_y{0}, m_z{0}
 {
-    m_x = 0;
-    m_y = 0;
-    m_z = 0;
 }
 Point3D::Point3D(int x, int y, int z)
 {

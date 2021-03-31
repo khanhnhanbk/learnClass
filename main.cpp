@@ -1,35 +1,60 @@
+#include <string>
 #include <iostream>
-#include "IntPair.h"
-#include "Point3D.h"
+ 
+class Ball
+{
+private:
+	std::string m_color;
+	double m_radius;
+ 
+public:
+	// Default constructor with no parameters
+	Ball()
+	{
+		m_color = "black";
+		m_radius = 10.0;
+	}
+ 
+	// Constructor with only color parameter (radius will use default value)
+	Ball(const std::string &color)
+	{
+		m_color = color;
+		m_radius = 10.0;
+	}
+ 
+	// Constructor with only radius parameter (color will use default value)
+	Ball(double radius)
+	{
+		m_color = "black";
+		m_radius = radius;
+	}
+ 
+	// Constructor with both color and radius parameters
+	Ball(const std::string &color, double radius)
+	{
+		m_color = color;
+		m_radius = radius;
+	}
+ 
+	void print()
+	{
+		std::cout << "color: " << m_color << ", radius: " << m_radius << '\n';
+	}
+};
+ 
 int main()
 {
-    Point3D point1;
-    point1.setValues(1, 2, 3);
-
-    Point3D point2;
-    point2.setValues(1, 2, 3);
-
-    if (point1.isEqual(point2))
-    {
-        std::cout << "point1 and point2 are equal\n";
-    }
-    else
-    {
-        std::cout << "point1 and point2 are not equal\n";
-    }
-    point1.print();
-    point2.print();
-    Point3D point3;
-    point3.setValues(3, 4, 5);
-
-    if (point1.isEqual(point3))
-    {
-        std::cout << "point1 and point3 are equal\n";
-    }
-    else
-    {
-        std::cout << "point1 and point3 are not equal\n";
-    }
-    point3.print();
-    return 0;
+	Ball def;
+	def.print();
+ 
+	Ball blue{ "blue" };
+	blue.print();
+	
+	Ball twenty{ 20.0 };
+	twenty.print();
+	
+	Ball blueTwenty{ "blue", 20.0 };
+	blueTwenty.print();
+ 
+	return 0;
 }

@@ -1,14 +1,35 @@
 #include <iostream>
 #include "IntPair.h"
+#include "Point3D.h"
 int main()
 {
-    IntPair p1;
-    p1.set(1, 1); // set p1 values to (1, 1)
+    Point3D point1;
+    point1.setValues(1, 2, 3);
 
-    IntPair p2{2, 2}; // initialize p2 values to (2, 2)
+    Point3D point2;
+    point2.setValues(1, 2, 3);
 
-    p1.print();
-    p2.print();
+    if (point1.isEqual(point2))
+    {
+        std::cout << "point1 and point2 are equal\n";
+    }
+    else
+    {
+        std::cout << "point1 and point2 are not equal\n";
+    }
+    point1.print();
+    point2.print();
+    Point3D point3;
+    point3.setValues(3, 4, 5);
 
+    if (point1.isEqual(point3))
+    {
+        std::cout << "point1 and point3 are equal\n";
+    }
+    else
+    {
+        std::cout << "point1 and point3 are not equal\n";
+    }
+    point3.print();
     return 0;
 }
